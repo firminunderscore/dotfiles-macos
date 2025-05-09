@@ -1,2 +1,2 @@
 #!/bin/bash
-stow .
+stow --ignore="setup.sh" .
