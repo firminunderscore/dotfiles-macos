@@ -1,26 +1,10 @@
 format = """
-[╭─](fg:#333333)\
 [  ](fg:#ffffff)\
 [⟩](fg:#333333)\
 $directory\
 $git_branch\
 $git_status\
-$fill\
-$jobs\
-$status\
-$cmd_duration\
-$package\
-$bun\
-$zig\
-$python\
-$rust\
-$swift\
-$docker_context\
-$time\
-$hostname
-[╰─](fg:#333333)\
-$sudo\
-$username\
+$sudo
 $character
 """
 
@@ -46,18 +30,6 @@ success_symbol = "[❯](bold #8AFF80)"
 format = "[ $path ](fg:#0187AF)"
 truncation_length = 3
 truncation_symbol = "…/"
-home_symbol = " "
-
-[directory.substitutions]
-"Downloads" = " 󰇚 "
-"Music" = " 󰝚 "
-"Documents" = " 󰈙 "
-"IUT" = " 󰑴 "
-"Applications" = "  "
-"Code" = " 󰅩 "
-"Pictures" = "  "
-"Movies" = "  "
-"Desktop" = "  "
 
 [git_branch]
 symbol = ""

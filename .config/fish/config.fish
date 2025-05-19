@@ -25,7 +25,7 @@ alias xpr="z /Users/alexian/Library/Mobile Documents/com~apple~CloudDocs/Pro/Sta
 # ----- EDITORS -----
 # Default editors configuration
 export EDITOR=/opt/homebrew/bin/hx
-export VISUAL=/opt/homebrew/bin/zed
+# Export VISUAL=/opt/homebrew/bin/zed
 
 # ----- MANUAL PAGER -----
 # Custom pager for man pages using Bat for syntax highlighting
@@ -650,3 +650,4 @@ if test -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
     source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 end
 
+fastfetch
