@@ -1,4 +1,4 @@
-font-family = "MesloLGS Nerd Font Mono"
+# font-family = "MesloLGS Nerd Font Mono"
 font-size = 14
 theme = "Brogrammer"
 bold-is-bright = true
