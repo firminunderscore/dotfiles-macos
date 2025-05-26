@@ -621,10 +621,6 @@ function update
     pipx upgrade-all
     echo -e "$green✅ Python modules upgraded!$reset"
 
-    yabai --stop-service
-    yabai --uninstall-service
-    brew upgrade yabai
-
     # Final success message
     echo -e "$bold$green----- Update Successful! -----$reset"
 end
