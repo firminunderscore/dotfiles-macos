@@ -19,7 +19,7 @@ export LANG="en_US.UTF-8"
 # ----- EDITORS -----
 # Default editors configuration
 export EDITOR=/opt/homebrew/bin/hx
-export VISUAL=/opt/homebrew/bin/zed
+# Export VISUAL=/opt/homebrew/bin/zed
 
 # ----- MANUAL PAGER -----
 # Custom pager for man pages using Bat for syntax highlighting
@@ -614,10 +614,6 @@ function update
     echo -e "$bold----- Upgrading PIPX Modules -----$reset"
     pipx upgrade-all
     echo -e "$green✅ Python modules upgraded!$reset"
-
-    yabai --stop-service
-    yabai --uninstall-service
-    brew upgrade yabai
 
     # Final success message
     echo -e "$bold$green----- Update Successful! -----$reset"
