@@ -5,6 +5,8 @@ FILES=(
     ".config/fish/config.fish"
     ".config/ghostty/"
     ".config/starship.toml"
+    ".config/aerospace/"
+    ".config/sketchybar/"
     ".hushlogin"
 )
 

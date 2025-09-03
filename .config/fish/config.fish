@@ -77,6 +77,7 @@ alias gc-="git checkout -" # Quickly switch to the previous branch
 alias gda="git diff *" # Git Diff all files
 alias gz="lazygit"
 alias gurl="gh repo view --web"
+alias gswitch="gh auth switch && gh auth setup-git" # Switch between github accounts and setup git
 
 set -gx fzf_git_log_opts --preview='git show {1} | delta' # Set Delta for FZF Git Log
 
@@ -654,3 +655,7 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Created by `pipx` on 2025-08-09 20:24:55
+set PATH $PATH /Users/firmin/.local/bin
+

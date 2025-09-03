@@ -4,7 +4,8 @@ theme = "Brogrammer"
 bold-is-bright = true
 custom-shader-animation = true
 shell-integration-features = true
-macos-titlebar-style = "tabs"
+# macos-titlebar-style = "tabs"
+macos-titlebar-style = hidden
 background-blur = true
 cursor-style = "bar"
 

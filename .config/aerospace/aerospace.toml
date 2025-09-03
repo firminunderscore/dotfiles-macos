@@ -1,0 +1,136 @@
+# You can use it to add commands that run after login to macOS user session.
+# 'start-at-login' needs to be 'true' for 'after-login-command' to work
+# Available commands: https://nikitabobko.github.io/AeroSpace/commands
+after-login-command = []
+
+# after-startup-command = [
+#   'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+# ]
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 30
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
+# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
+# Fallback value (if you omit the key): on-focused-monitor-changed = []
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = true
+
+# Run Sketchybar together with AeroSpace
+# sketchbar has a built-in detection of already running process,
+# so it won't be run twice on AeroSpace restart
+after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
+
+[key-mapping]
+    preset = 'qwerty'
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+[gaps]
+    [gaps.inner]
+    horizontal = 6
+    vertical =   6
+    [gaps.outer]
+    left =       8
+    bottom =     8
+    top = [
+        { monitor."Built-in Retina Display" = 10 }, # Built-in Retina Display (notch)
+        42
+    ]
+    right = 8
+
+# 'main' binding mode declaration
+[mode.main.binding]
+    # cmd-ctrl-alt-shift -> Raycast hyper key (capslock)
+    cmd-ctrl-alt-shift-1 = 'workspace 1'
+    cmd-ctrl-alt-shift-2 = 'workspace 2'
+    cmd-ctrl-alt-shift-3 = 'workspace 3'
+    cmd-ctrl-alt-shift-4 = 'workspace 4'
+    cmd-ctrl-alt-shift-5 = 'workspace 5'
+    cmd-ctrl-alt-shift-6 = 'workspace 6'
+    cmd-ctrl-alt-shift-7 = 'workspace 7'
+    cmd-ctrl-alt-shift-8 = 'workspace 8'
+    cmd-ctrl-alt-shift-9 = 'workspace 9'
+
+    ctrl-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    ctrl-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+    ctrl-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    ctrl-alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+    ctrl-alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+    ctrl-alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+    ctrl-alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+    ctrl-alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+    ctrl-alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+
+    cmd-ctrl-alt-shift-h = 'focus left'
+    cmd-ctrl-alt-shift-j = 'focus down'
+    cmd-ctrl-alt-shift-k = 'focus up'
+    cmd-ctrl-alt-shift-l = 'focus right'
+
+    alt-f =  ['layout tiles floating']
+    alt-q =  ['layout tiles accordion']
+    alt-h =  ['layout tiles horizontal']
+    alt-v =  ['layout tiles vertical']
+    alt-o =  ['join-with left']
+    alt-p =  ['join-with right']
+
+    ctrl-alt-h = 'move left'
+    ctrl-alt-j = 'move down'
+    ctrl-alt-k = 'move up'
+    ctrl-alt-l = 'move right'
+
+
+[[on-window-detected]]
+    if.app-id = 'com.mitchellh.ghostty' # Ghostty
+    run = ['move-node-to-workspace 2 --focus-follows-window']
+
+[[on-window-detected]]
+    if.app-id = 'com.todesktop.230313mzl4w4u92' # Cursor
+    run = 'move-node-to-workspace 3 --focus-follows-window'
+
+[[on-window-detected]]
+    if.app-id = 'app.zen-browser.zen' # Zen (browser)
+    run = ['move-node-to-workspace 1 --focus-follows-window']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.finder' # Finder
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'org.whispersystems.signal-desktop' # Signal
+    run = ['move-node-to-workspace 4 --focus-follows-window']
+
+[[on-window-detected]]
+    if.app-id = 'com.hnc.Discord' # Discord
+    run = ['move-node-to-workspace 4 --focus-follows-window']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Music' # Music
+    run = ['move-node-to-workspace 8 --focus-follows-window']
