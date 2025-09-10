@@ -10,7 +10,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=34 blur_radius=30 color=0x40000000
+sketchybar --bar position=top height=34 blur_radius=30 color=0x30000000
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -112,7 +112,7 @@ sketchybar --add item battery right \
   --subscribe battery system_woke power_source_change
 
 
-            sketchybar --add item ram right \
+sketchybar --add item ram right \
            --set ram update_freq=10 \
                      script="$PLUGIN_DIR/ram.sh" \
                      icon="" \

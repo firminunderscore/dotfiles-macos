@@ -94,12 +94,14 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     cmd-ctrl-alt-shift-k = 'focus up'
     cmd-ctrl-alt-shift-l = 'focus right'
 
-    alt-f =  ['layout tiles floating']
+    alt-f =  ['layout floating']
+    alt-t =  ['layout tiling']
     alt-q =  ['layout tiles accordion']
     alt-h =  ['layout tiles horizontal']
     alt-v =  ['layout tiles vertical']
     alt-o =  ['join-with left']
     alt-p =  ['join-with right']
+    alt-r =  ['flatten-workspace-tree'] # Reset
 
     ctrl-alt-h = 'move left'
     ctrl-alt-j = 'move down'

@@ -9,6 +9,9 @@ macos-titlebar-style = hidden
 background-blur = true
 cursor-style = "bar"
 
+window-padding-x = 5
+window-padding-y = 5
+
 keybind = super+p=clear_screen
 keybind = super+h=goto_split:previous
 keybind = super+l=goto_split:next
