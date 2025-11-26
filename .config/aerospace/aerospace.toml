@@ -42,12 +42,12 @@ automatically-unhide-macos-hidden-apps = true
 # Run Sketchybar together with AeroSpace
 # sketchbar has a built-in detection of already running process,
 # so it won't be run twice on AeroSpace restart
-after-startup-command = ['exec-and-forget sketchybar']
+# after-startup-command = ['exec-and-forget sketchybar']
 
 # Notify Sketchybar about workspace change
-exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
-]
+# exec-on-workspace-change = ['/bin/bash', '-c',
+#     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+# ]
 
 [key-mapping]
     preset = 'qwerty'
@@ -60,39 +60,43 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     [gaps.outer]
     left =       8
     bottom =     8
-    top = [
-        { monitor."Built-in Retina Display" = 10 }, # Built-in Retina Display (notch)
-        42
-    ]
+    # top = [
+    #     { monitor."Built-in Retina Display" = 10 }, # Built-in Retina Display (notch)
+    #     42
+    # ]
+    top = 8
     right = 8
-
+    
 # 'main' binding mode declaration
 [mode.main.binding]
-    # cmd-ctrl-alt-shift -> Raycast hyper key (capslock)
-    cmd-ctrl-alt-shift-1 = 'workspace 1'
-    cmd-ctrl-alt-shift-2 = 'workspace 2'
-    cmd-ctrl-alt-shift-3 = 'workspace 3'
-    cmd-ctrl-alt-shift-4 = 'workspace 4'
-    cmd-ctrl-alt-shift-5 = 'workspace 5'
-    cmd-ctrl-alt-shift-6 = 'workspace 6'
-    cmd-ctrl-alt-shift-7 = 'workspace 7'
-    cmd-ctrl-alt-shift-8 = 'workspace 8'
-    cmd-ctrl-alt-shift-9 = 'workspace 9'
+    # cmd-ctrl-alt -> Raycast hyper key (capslock)
+    cmd-ctrl-alt-1 = 'workspace 1'
+    cmd-ctrl-alt-2 = 'workspace 2'
+    cmd-ctrl-alt-3 = 'workspace 3'
+    cmd-ctrl-alt-4 = 'workspace 4'
+    cmd-ctrl-alt-5 = 'workspace 5'
+    cmd-ctrl-alt-6 = 'workspace 6'
+    cmd-ctrl-alt-7 = 'workspace 7'
+    cmd-ctrl-alt-8 = 'workspace 8'
+    cmd-ctrl-alt-9 = 'workspace 9'
+    cmd-ctrl-alt-0 = 'workspace 10'
 
-    ctrl-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-    ctrl-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-    ctrl-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-    ctrl-alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-    ctrl-alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
-    ctrl-alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
-    ctrl-alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
-    ctrl-alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
-    ctrl-alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+    # Hyper key + shift -> Move window to workspace
+    cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    cmd-ctrl-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+    cmd-ctrl-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    cmd-ctrl-alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+    cmd-ctrl-alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+    cmd-ctrl-alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+    cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+    cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+    cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+    cmd-ctrl-alt-shift-0 = 'move-node-to-workspace 10 --focus-follows-window'
 
-    cmd-ctrl-alt-shift-h = 'focus left'
-    cmd-ctrl-alt-shift-j = 'focus down'
-    cmd-ctrl-alt-shift-k = 'focus up'
-    cmd-ctrl-alt-shift-l = 'focus right'
+    cmd-ctrl-alt-h = 'focus left'
+    cmd-ctrl-alt-j = 'focus down'
+    cmd-ctrl-alt-k = 'focus up'
+    cmd-ctrl-alt-l = 'focus right'
 
     alt-f =  ['layout floating']
     alt-t =  ['layout tiling']
@@ -108,6 +112,9 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     ctrl-alt-k = 'move up'
     ctrl-alt-l = 'move right'
 
+# Attach secondary monitor to workspace 10
+[workspace-to-monitor-force-assignment]
+    10 = 'secondary'
 
 [[on-window-detected]]
     if.app-id = 'com.mitchellh.ghostty' # Ghostty
@@ -136,3 +143,4 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 [[on-window-detected]]
     if.app-id = 'com.apple.Music' # Music
     run = ['move-node-to-workspace 8 --focus-follows-window']
+

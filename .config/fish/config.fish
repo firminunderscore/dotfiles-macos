@@ -659,3 +659,5 @@ end
 # Created by `pipx` on 2025-08-09 20:24:55
 set PATH $PATH /Users/firmin/.local/bin
 
+
+fish_add_path /Users/firmin/.spicetify
