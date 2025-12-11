@@ -188,66 +188,6 @@ function ff # f(orfait)
     echo -e "\033[0m"
 end
 
-# Function to show git commits conventions
-function git_conv
-    # First part: Display the Git Commit Conventions Table
-    nu -c '
-    print "🧾 Git Commit Conventions Table"
-        
-    let data = [
-        { "Commit Type": "🎉 Initialization", "Keyword (type)": "init", "Description": "Project start or module initialization" }
-        { "Commit Type": "✨ New Feature", "Keyword (type)": "feat", "Description": "Adding a new feature" }
-        { "Commit Type": "🐛 Bug Fix", "Keyword (type)": "fix", "Description": "Fixing a bug" }
-        { "Commit Type": "📚 Documentation", "Keyword (type)": "docs", "Description": "Changes made only to documentation" }
-        { "Commit Type": "🎨 Formatting", "Keyword (type)": "style", "Description": "Formatting, indentation, spaces, etc. (no code logic modification)" }
-        { "Commit Type": "🔄 Refactoring", "Keyword (type)": "refactor", "Description": "Refactoring code without adding or fixing functionality" }
-        { "Commit Type": "⏳ Performance", "Keyword (type)": "perf", "Description": "Improving performance" }
-        { "Commit Type": "🧪 Tests", "Keyword (type)": "test", "Description": "Adding or modifying tests" }
-        { "Commit Type": "🚧 Build", "Keyword (type)": "build", "Description": "Changes affecting the build system or dependencies" }
-        { "Commit Type": "🔧 Configuration", "Keyword (type)": "chore", "Description": "Maintenance tasks, non-source code changes (e.g: updating build tools)" }
-        { "Commit Type": "⏪ Revert", "Keyword (type)": "revert", "Description": "Reverting a previous commit" }
-        { "Commit Type": "❌ Deletion", "Keyword (type)": "chore or refactor", "Description": "Deleting obsolete code, unnecessary files, or features" }
-    ]
-
-    # Display the Git Commit Conventions Table
-    $data | table
-    '
-
-    # Second part: Display Best Practices
-    nu -c '
-    print "🔑 Best Practices for Commit Messages:"
-
-    let best_practices = [
-        "Use present tense (e.g: adds instead of added).",
-        "Be concise but descriptive in your message.",
-        "Start with an action verb (e.g: adds, fixes, refactors, etc.).",
-        "Don\'t forget to explain the why behind the change if necessary (for more complex commits).",
-        "Avoid using imperative. Write messages as a description (not like commands).",
-        "Limit the subject line to 50 characters for readability."
-    ]
-    
-    # Display the Best Practices
-    $best_practices | each {|msg| echo $msg}
-    '
-
-    # Third part: Example Section
-    nu -c '
-    print "📝 Examples of Commit Messages:"
-
-    let examples = [
-        "✨ feat: add user login functionality",
-        "🐛 fix: correct password hashing issue",
-        "📚 docs: update README with setup instructions",
-        "🎨 style: format login component",
-        "🔄 refactor: extract auth logic into separate service",
-        "🧪 test: add unit tests for login validation",
-        "❌ chore: remove unused login helper functions"
-    ]
-
-    $examples | each {|example| echo $example}
-    '
-end
-
 function git_tags
     echo "🧹 Deleting all local Git tags..."
     for tag in (git tag)
@@ -263,7 +203,6 @@ end
 # ----- PYTHON ENVIRONMENT -----
 alias python="ipython"
 alias ruff="ruff format"
-alias jup_clean="rmd /Users/alexian/Library/Jupyter/ && rmd ~/.jupyter/"
 
 # Function to initialize a Python virtual environment
 function venvinit
@@ -355,10 +294,6 @@ function pyclean
     rm -rf build
 end
 
-# ----- PIPX -----
-# Add PipX to the PATH
-set PATH $PATH /Users/alexian/.local/bin
-
 # ----- FILE NAVIGATION & MANAGEMENT -----
 # Aliases for file management commands
 alias lal="eza -al --icons --git --group-directories-first" # List all files in list format
@@ -438,12 +373,6 @@ function serve_text
     rm /tmp/text.txt
 end
 
-# Function to fix permissions on known_hosts
-function fixkhost
-    sudo chown alexian ~/.ssh/known_hosts
-    chmod 600 ~/.ssh/known_hosts
-end
-
 # Function to highlight code using Silicon
 function codecp
     set -l highlight_args
@@ -466,13 +395,6 @@ function clock
     clear
 end
 
-# Function for a humorous output
-function rose
-    echo -e "Roses are \033[91mred"
-    echo -e "\033[39mViolets are \033[94mblue"
-    echo -e "\033[39mMissing semicolon on line 32"
-end
-
 # Function to convert video with hardware encoding
 function convert
     if test (count $argv) -ne 2
@@ -481,26 +403,7 @@ function convert
     end
 
     ffmpeg -i $argv[1] -c:v h264_videotoolbox $argv[2]
-end
-
-# ----- ADB COMMANDS -----
-# Aliases for Android Debug Bridge commands
-alias adbc="adb connect $argv[1]" # Connect to ADB
-alias adbd="adb disconnect" # Disconnect from ADB
-
-abbr -a -g adbs scrcpy # Abbreviation for scrcpy
-
-# Open YouTube link via ADB
-alias cradb="adb shell am start 'https://ww.youtube.com/watch?v=LDU_Txk06tM'"
-alias braketv="adb shell monkey -v $argv[1] -s 100" # Run ADB command to app
-
-# ----- MPV -----
-# Function to play media with MPV
-function play
-    mpv $argv[1] --pause --cache=no &
-    disown (jobs -p)
-    exit
-end
+end 
 
 # ----- SYSTEM COMMANDS -----
 # System-related aliases and functions
@@ -625,8 +528,6 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
-# Added by LM Studio CLI tool (lms)
-set -gx PATH $PATH /Users/alexian/.lmstudio/bin
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
