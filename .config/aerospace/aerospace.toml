@@ -137,6 +137,10 @@ automatically-unhide-macos-hidden-apps = true
     run = ['move-node-to-workspace 1 --focus-follows-window']
 
 [[on-window-detected]]
+    if.app-id = 'com.vivaldi.Vivaldi' # Vivaldi (browser)
+    run = ['move-node-to-workspace 1 --focus-follows-window']
+
+[[on-window-detected]]
     if.app-id = 'com.apple.finder' # Finder
     run = 'layout floating'
 
