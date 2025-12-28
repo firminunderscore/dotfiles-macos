@@ -1,3 +1,11 @@
+# ----- HOMEBREW SETUP -----
+# Configure Homebrew path for both Apple Silicon and Intel Macs
+if test -d /opt/homebrew
+    eval (/opt/homebrew/bin/brew shellenv)
+else if test -d /usr/local/Homebrew
+    eval (/usr/local/bin/brew shellenv)
+end
+
 # ----- ENVIRONMENT -----
 # Fish shell configuration for interactive sessions
 if status is-interactive

@@ -1,0 +1,19 @@
+# Git
+\.git
+\.gitignore
+
+# Scripts
+install\.sh
+backup\.sh
+setup\.sh
+
+# Stow config
+\.stow-local-ignore
+\.stowrc
+
+# macOS
+\.DS_Store
+
+# Docs
+README\.md
+LICENSE
