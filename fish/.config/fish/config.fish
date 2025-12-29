@@ -420,24 +420,6 @@ alias permreset="tccutil reset $argv[1] $argv[2]" # Reset permissions
 alias mountdmg="hdiutil attach $argv[1]" # Mount DMG file
 alias gatekeeper="sudo spctl --master-$argv[1]" # Manage Gatekeeper
 
-# ----- SERVER UPDATE -----
-function serverupdate
-    ssh prod-server
-    ssh vpn
-    ssh utils
-    ssh media
-    ssh dashboard
-    ssh proxy
-
-    read -l -P "Do you want to connect to mc? (y/n): " confirm_mc
-    if test "$confirm_mc" = y
-        ssh mc /root/update.sh
-    end
-
-    ssh vm-iut
-    ssh rpi
-end
-
 # ----- HOMEBREW -----
 # Aliases for Homebrew package manager
 alias bd="brew info" # Show detailed information
@@ -540,15 +522,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-
-# ----- NVM 
-set -gx NVM_DIR "$HOME/.nvm"
-if test -s "/opt/homebrew/opt/nvm/nvm.sh"
-    source "/opt/homebrew/opt/nvm/nvm.sh"
-end
-if test -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-    source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-end
 
 echo ""
 fastfetch
