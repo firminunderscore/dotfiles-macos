@@ -252,26 +252,32 @@ setup_macos_preferences() {
     mkdir -p ~/Pictures/Screenshots
     defaults write com.apple.screencapture location -string "${HOME}/Pictures/Screenshots"
     
-    # --- Spotlight ---
-    log_info "Disabling Spotlight shortcut (Command+Space)..."
-    # Disable "Show Spotlight Search" hotkey (Command+Space) to prevent conflict with Raycast
-    defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = (32, 49, 1048576); type = 'standard'; }; }"
+    # --- Raycast & Spotlight ---
+    if [[ -d "/Applications/Raycast.app" ]]; then
+        log_info "Raycast detected. Configuring preferences and disabling Spotlight..."
+        
+        # Disable "Show Spotlight Search" hotkey (Command+Space) to prevent conflict with Raycast
+        defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{ enabled = 0; value = { parameters = (32, 49, 1048576); type = 'standard'; }; }"
 
-    # --- Raycast ---
-    log_info "Setting Raycast preferences..."
-    # Enable Hyper Key (Caps Lock maps to Hyper)
-    defaults write com.raycast.macos raycast_hyperKey_state -dict enabled -bool true keyCode -int 57 includeShiftKey -bool false
-    defaults write com.raycast.macos useHyperKeyIcon -bool true
-    # Set Raycast Global Hotkey to Command+Space (Command-49)
-    defaults write com.raycast.macos raycastGlobalHotkey -string "Command-49"
+        # Enable Hyper Key (Caps Lock maps to Hyper)
+        defaults write com.raycast.macos raycast_hyperKey_state -dict enabled -bool true keyCode -int 57 includeShiftKey -bool false
+        # Show Hyper Key icon in menu bar
+        defaults write com.raycast.macos useHyperKeyIcon -bool true
+        # Set Raycast Global Hotkey to Command+Space (Command-49)
+        defaults write com.raycast.macos raycastGlobalHotkey -string "Command-49"
+    else
+        log_info "Raycast not found. Skipping Raycast configuration and leaving Spotlight enabled."
+    fi
     
     # Restart apps to apply changes
-    for app in "Finder" "Dock" "SystemUIServer" "Raycast"; do
+    for app in "Finder" "Dock" "SystemUIServer"; do
         killall "$app" &>/dev/null || true
     done
 
-    # Restart Raycast because it doesn't restart automatically
-    open -a "Raycast"
+    if [[ -d "/Applications/Raycast.app" ]]; then
+        killall "Raycast" &>/dev/null || true
+        open -a "Raycast"
+    fi
 }
 
 # ==============================================================================
