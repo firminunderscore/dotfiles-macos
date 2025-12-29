@@ -266,9 +266,12 @@ setup_macos_preferences() {
     defaults write com.raycast.macos raycastGlobalHotkey -string "Command-49"
     
     # Restart apps to apply changes
-    for app in "Finder" "Dock" "SystemUIServer"; do
+    for app in "Finder" "Dock" "SystemUIServer" "Raycast"; do
         killall "$app" &>/dev/null || true
     done
+
+    # Restart Raycast because it doesn't restart automatically
+    open -a "Raycast"
 }
 
 # ==============================================================================
