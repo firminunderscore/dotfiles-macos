@@ -1,4 +1,4 @@
-# FirminUnderscore's macOS dotfiles
+# FirminUnderscore's macOS dotfiles (and install script)
 
 ![Mac Setup Screenshot](./screenshot.png)
 
