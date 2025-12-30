@@ -1,11 +1,12 @@
 # Shell & Core
+fish
 stow
 starship
 zoxide
 fzf
 tmux
 
-# Modern Shell Utils (Rust replacements)
+# Modern Shell Utils
 bat
 eza
 tree
