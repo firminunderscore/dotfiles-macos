@@ -1,0 +1,52 @@
+# Shell & Core
+stow
+starship
+zoxide
+fzf
+tmux
+
+# Modern Shell Utils (Rust replacements)
+bat
+eza
+tree
+watch
+jq
+ripgrep
+fd
+sd
+
+# Network & Downloads
+wget
+curl
+
+# Development
+# git should be installed with the xcode cli tools package
+gh
+neovim
+cmake
+pkgconf
+tree-sitter-cli
+zig
+composer
+pipx
+ipython
+opencode
+symfony-cli
+gemini-cli
+
+# System Info & Monitoring
+btop
+fastfetch
+mactop
+
+# File Manager
+yazi
+
+# Media
+ffmpeg
+mpv
+timg
+sl
+cava
+cmatrix
+

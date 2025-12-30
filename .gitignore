@@ -1,1 +1,10 @@
+# macOS
 **/.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Local overrides (if any)
+*.local

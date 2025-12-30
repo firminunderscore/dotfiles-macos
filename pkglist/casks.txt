@@ -1,0 +1,30 @@
+# Browsers & Web
+vivaldi
+
+# Dev & Terminal
+ghostty
+cursor
+android-platform-tools
+
+# Productivity
+raycast
+notion
+notion-calendar
+bitwarden
+
+# Communication
+signal
+dorion
+
+# Media
+spotify
+
+# System Utilities
+font-hack-nerd-font
+font-sf-pro
+shottr
+aerospace
+jordanbaird-ice
+blip
+linearmouse
+macs-fan-control
