@@ -165,3 +165,7 @@ automatically-unhide-macos-hidden-apps = true
     if.app-id = 'com.spotify.client' # Spotify
     run = ['move-node-to-workspace 8 --focus-follows-window']
 
+[[on-window-detected]]
+    if.app-id = 'com.qobuz.desktop' # Qobuz
+    run = ['move-node-to-workspace 8 --focus-follows-window']
+

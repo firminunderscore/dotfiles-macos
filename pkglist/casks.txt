@@ -10,7 +10,7 @@ android-platform-tools
 raycast
 notion
 notion-calendar
-bitwarden
+1password
 
 # Communication
 signal
@@ -24,7 +24,10 @@ font-hack-nerd-font
 font-sf-pro
 shottr
 aerospace
-jordanbaird-ice
+thow@beta
 blip
 linearmouse
 macs-fan-control
+
+# Appearance
+topnotch

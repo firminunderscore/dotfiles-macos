@@ -543,3 +543,6 @@ set PATH $PATH /Users/firmin/.local/bin
 
 
 fish_add_path /Users/firmin/.spicetify
+
+# Added by Antigravity
+fish_add_path /Users/firmin/.antigravity/antigravity/bin
