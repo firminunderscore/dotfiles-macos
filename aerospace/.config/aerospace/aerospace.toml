@@ -113,8 +113,9 @@ automatically-unhide-macos-hidden-apps = true
     cmd-ctrl-alt-shift-k = 'move up'
     cmd-ctrl-alt-shift-l = 'move right'
 
-# Attach secondary monitor to workspace 10
+# Attach secondary monitor to workspaces 9 and 10
 [workspace-to-monitor-force-assignment]
+    9 = 'secondary'
     10 = 'secondary'
 
 [[on-window-detected]]
@@ -146,26 +147,30 @@ automatically-unhide-macos-hidden-apps = true
     run = 'layout floating'
 
 [[on-window-detected]]
-    if.app-id = 'org.whispersystems.signal-desktop' # Signal
+    if.app-id = 'com.anthropic.claudefordesktop' # Claude
     run = ['move-node-to-workspace 4 --focus-follows-window']
+
+[[on-window-detected]]
+    if.app-id = 'org.whispersystems.signal-desktop' # Signal
+    run = ['move-node-to-workspace 9 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.hnc.Discord' # Discord
-    run = ['move-node-to-workspace 4 --focus-follows-window']
+    run = ['move-node-to-workspace 9 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.spikehd.dorion' # Dorion
-    run = ['move-node-to-workspace 4 --focus-follows-window']
+    run = ['move-node-to-workspace 9 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.apple.Music' # Music
-    run = ['move-node-to-workspace 8 --focus-follows-window']
+    run = ['move-node-to-workspace 10 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.spotify.client' # Spotify
-    run = ['move-node-to-workspace 8 --focus-follows-window']
+    run = ['move-node-to-workspace 10 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.qobuz.desktop' # Qobuz
-    run = ['move-node-to-workspace 8 --focus-follows-window']
+    run = ['move-node-to-workspace 10 --focus-follows-window']
 
